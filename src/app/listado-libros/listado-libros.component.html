@@ -1,1 +1,21 @@
 <p>listado-libros works!</p>
+<h2>Listado de libros</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Autor</th>
+            <th>Genero</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let item of libros">
+            <td>{{item.nombre}}</td>
+            <td>{{item.autor}}</td>
+            <td>{{item.genero}}</td>
+            
+
+        </tr>
+    </tbody>
+</table>

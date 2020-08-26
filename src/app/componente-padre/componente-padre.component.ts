@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ComponentePadreComponent implements OnInit {
 
+  lista:any = [];
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+
+  agregarLibroALista(unLibro){
+    this.lista.push(unLibro);
   }
 
 }

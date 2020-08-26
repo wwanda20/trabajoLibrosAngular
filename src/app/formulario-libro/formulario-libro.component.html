@@ -1,1 +1,15 @@
 <p>formulario-libro works!</p>
+<h2>Nuevo libro</h2>
+<form (ngSubmit)="nuevoLibro()">
+    <label for="name">Nombre</label>
+    <input type="text" name="name" id="name" [(ngModel)]="name">
+
+    <label for="author">Autor</label>
+    <input type="text" name="author" id="author" [(ngModel)]="author">
+
+    <label for="gender">Genero</label>
+    <select type="text" name="gender" id="gender" [(ngModel)]="gender">
+
+    <button>Buscar</button>
+
+</form>

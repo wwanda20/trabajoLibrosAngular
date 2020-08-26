@@ -1,4 +1,5 @@
 <p>componente-padre works!</p>
-<app-formulario-libro></app-formulario-libro>
+<app-formulario-libro (hayUnNuevoLibro)="agregarLibroALista($event)"></app-formulario-libro>
 <app-libros-prestados></app-libros-prestados>
-<app-listado-libros></app-listado-libros>
+<app-listado-libros [libros]="libros"></app-listado-libros>
+
