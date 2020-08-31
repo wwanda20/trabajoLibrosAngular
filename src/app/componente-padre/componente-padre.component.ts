@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LibrosService } from '../libros.service';
 
 @Component({
   selector: 'app-componente-padre',
@@ -8,14 +9,19 @@ import { Component, OnInit } from '@angular/core';
 export class ComponentePadreComponent implements OnInit {
 
   lista:any = [];
-  constructor() { }
 
-  ngOnInit(): void {
+  constructor(private librosService: LibrosService) { }
+
+  async ngOnInit() {
+
+    this.lista = await this.librosService.listaDeLibros();
   }
 
 
-  agregarLibroALista(unLibro){
-    this.lista.push(unLibro);
+  async agregarLibroALista(){
+    
+    this.lista = await this.librosService.listaDeLibros();
+
   }
 
 }

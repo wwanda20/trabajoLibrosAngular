@@ -1,15 +1,21 @@
-<p>formulario-libro works!</p>
-<h2>Nuevo libro</h2>
-<form (ngSubmit)="nuevoLibro()">
+
+<h2>Ingresar nuevo libro</h2>
+
+<form (ngSubmit)="guardar()">
+    
     <label for="name">Nombre</label>
-    <input type="text" name="name" id="name" [(ngModel)]="name">
+    <input type="text" name="name" id="name" [(ngModel)]="libro.name">
 
     <label for="author">Autor</label>
-    <input type="text" name="author" id="author" [(ngModel)]="author">
+    <input type="text" name="author" id="author" [(ngModel)]="libro.author">
 
-    <label for="gender">Genero</label>
-    <select type="text" name="gender" id="gender" [(ngModel)]="gender">
+    <label for="lended">Prestado a</label>
+    <input type="text" name="lended" id="lended" [(ngModel)]="libro.lended">
 
-    <button>Buscar</button>
+    <label for="gender">Género</label>
+    <select name="gender" id="gender" [(ngModel)]="libro.gender">
+        <option *ngFor="let generosLibros of genero" value="generosLibros.id">{{generosLibros.genero}}</option>
+    </select>
 
+    <button type="submit">Agregar</button>
 </form>
