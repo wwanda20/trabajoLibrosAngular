@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-//import { LibrosService } from '../libros.service';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { LibrosService } from '../libros.service';
 
 @Component({
   selector: 'app-libros-prestados',
@@ -8,14 +8,20 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class LibrosPrestadosComponent implements OnInit {
 
-  //@Input() libros:any = [];
+  @Input() libros:any = [];
+  @Output() libroFuePrestado = new EventEmitter();
 
   constructor(private librosService: LibrosService) { }
 
   ngOnInit(): void {
   }
 
-  /*async agregarLibro(){    //nuevo libro
+  name: "";
+  author:"";
+  lended:"";
+  gender:"";
+
+  async agregarLibro(){    //nuevo libro
     //creo la estructura de libro 
     var libro ={
       name: this.name,
@@ -29,6 +35,6 @@ export class LibrosPrestadosComponent implements OnInit {
     var respuesta: any;
     respuesta = await this.librosService.guardarLibro(libro);
 
-    this.hayUnNuevoLibro.emit();  //aviso que guarde el libro
-  }*/
+    this.libroFuePrestado.emit();  //aviso que guarde el libro
+  }
 }
