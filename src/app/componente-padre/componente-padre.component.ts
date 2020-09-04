@@ -24,4 +24,8 @@ export class ComponentePadreComponent implements OnInit {
 
   }
 
+  /*async libroPrestadoLista(libroPrestado){
+    this.lista = await this.librosService.listaDeLibros();
+  }*/
+
 }

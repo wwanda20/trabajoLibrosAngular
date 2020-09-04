@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { GenerosService } from '../generos.service';
+import { LibrosService } from '../libros.service';
 
 @Component({
   selector: 'app-formulario-libro',
@@ -17,46 +18,27 @@ export class FormularioLibroComponent implements OnInit {
     gender: '',
   };
   
+
   genero:any;
 
- /*constructor(private librosService: LibrosService) { }
-
-  ngOnInit(): void {
-    
-  }
-
-
-  async agregarLibro(){    //nuevo libro
-    //creo la estructura de libro 
-    var libro ={
-      name: this.name,
-      author: this.author,
-      lended: this.lended,
-      gender: this.gender
-
-    }
-*/
-    
-    
    //prueba para generosService
-  constructor(private generosService: GenerosService) { }
+  constructor(private generosService: GenerosService, private librosService: LibrosService) { }
 
   ngOnInit(): void {
     this.genero = this.generosService.listaGeneros();
 
     console.log('generos',this.genero);
   }
-   async guardar(){
+  async guardar(){
      console.log("Libro guardado: ", this.libro);
      //Envio estructura libro al metodo creado en el service
     var respuesta: any;
-    respuesta = await this.generosService.guardarLibro(libro);
+    respuesta = await this.librosService.guardarLibro(this.libro);
     this.hayUnNuevoLibro.emit();  //aviso que guarde el libro
-   }
+  }    
    
-  
-      
-  }
+}    
+
 
   
 

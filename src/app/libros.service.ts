@@ -27,10 +27,10 @@ export class LibrosService {
     
   }
 
-  //Metodo para recibir todos los libros
+  //Metodo para recibir el listado de todos los libros
   async listaDeLibros(){
     try{
-      let resultado: any;
+      var resultado: any;
 
       resultado = await this.http.get(this.url+"libro").toPromise(); 
     
