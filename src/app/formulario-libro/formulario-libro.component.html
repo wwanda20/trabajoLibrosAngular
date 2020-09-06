@@ -1,7 +1,6 @@
+<h2 class="title">Ingresar nuevo libro</h2>
 
-<h2>Ingresar nuevo libro</h2>
-
-<form (ngSubmit)="guardar()">
+<form class="formulario" (ngSubmit)="guardar()">
     
     <label for="name">Nombre</label>
     <input type="text" name="name" id="name" [(ngModel)]="libro.name">
@@ -12,9 +11,9 @@
     <label for="lended">Prestado a</label>
     <input type="text" name="lended" id="lended" [(ngModel)]="libro.lended">
 
-    <label for="gender">Género</label>
-    <select name="gender" id="gender" [(ngModel)]="libro.gender">
-        <option *ngFor="let generosLibros of genero" value="generosLibros.id">{{generosLibros.genero}}</option>
+    <label for="gender">Genero</label>
+    <select name="gender" id="gender" [(ngModel)]="libro.gender" >
+        <option *ngFor="let generosLibros of generos" [value]="generosLibros.id">{{generosLibros.genero}}</option>
     </select>
 
     <button type="submit">Agregar</button>

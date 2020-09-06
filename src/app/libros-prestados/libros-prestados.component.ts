@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, /*Output, EventEmitter*/ } from '@angular/core';
 import { LibrosService } from '../libros.service';
 
 @Component({
@@ -9,13 +9,13 @@ import { LibrosService } from '../libros.service';
 export class LibrosPrestadosComponent implements OnInit {
 
   @Input() libros:any = [];
-  @Output() libroFuePrestado = new EventEmitter();
+  //@Output() libroFuePrestado = new EventEmitter();
 
   constructor(private librosService: LibrosService) { }
 
   ngOnInit(): void {
   }
-
+/*
   name: "";
   author:"";
   lended:"";
@@ -37,4 +37,5 @@ export class LibrosPrestadosComponent implements OnInit {
 
     this.libroFuePrestado.emit();  //aviso que guarde el libro
   }
+  */
 }

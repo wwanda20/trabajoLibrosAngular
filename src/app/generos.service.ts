@@ -9,31 +9,31 @@ export class GenerosService {
   //establezco los generos y id dentro de un array
   generosLibros = [
     {
-      id: 'idAccion',
+      id: 'GAccion',
       genero: 'Accion'
     },
     {
-      id: 'idAutoayuda',
+      id: 'GAutoayuda',
       genero: 'Autoayuda'
     },
     {
-      id: 'idManual',
+      id: 'GManual',
       genero: 'Manual'
     },
     {
-      id: 'idMisterio',
+      id: 'GMisterio',
       genero: 'Misterio'
     },
     {
-      id: 'idNovela',
+      id: 'GNovela',
       genero: 'Novela'
     },
     {
-      id: 'idReligion',
+      id: 'GReligion',
       genero: 'Religion'
     },
     {
-      id: 'idTerror',
+      id: 'GTerror',
       genero: 'Terror'
     },
   ];
@@ -44,6 +44,7 @@ export class GenerosService {
   //metodo que devuelve el listado de los generos
   listaGeneros(){
     return this.generosLibros;
+
   }
   
 }

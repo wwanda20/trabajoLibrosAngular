@@ -13,16 +13,16 @@ export class LibrosService {
   //Metodo para solicitar guardar un libro con todos los datos
   async guardarLibro(unLibro){
     try{
-      let resultado: any;
+      var resultado: any;
 
       resultado = await this.http.post(this.url+"libro", unLibro).toPromise(); //Post para guardar
 
       console.log(resultado);
-
+      
       return resultado;
     }
     catch(error){
-      console.log('Hay un error: '+error);
+      console.log(error);
     }
     
   }
@@ -40,6 +40,39 @@ export class LibrosService {
       console.log(error);
     }
     
+  }
+
+  async modificar(unLibro){
+    try{
+      var resultado: any;
+      resultado = await this.http.put(this.url+"libro/:id", unLibro.lended).toPromise();
+      return resultado;
+    }
+    catch(error){
+      console.log(error);
+    }
+  }
+
+  async getGenero(){
+    try{
+      var resultado: any;
+      resultado = await this.http.get(this.url+"genero").toPromise();
+      return resultado;
+    }
+    catch(error){
+      console.log(error);
+    }
+  }
+
+  async postGenero(unLibro){
+    try{
+      var resultado: any;
+      resultado = await this.http.post(this.url+"genero", unLibro.name).toPromise();
+      return resultado;
+    }
+    catch(error){
+      console.log(error);
+    }
   }
 
   
