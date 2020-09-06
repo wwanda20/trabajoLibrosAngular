@@ -27,8 +27,40 @@ export class LibrosService {
     
   }
 
+    //Metodo para solicitar guardar un libro con todos los datos
+    async guardarLibroPrestado(unLibro){
+      try{
+        var resultado: any;
+  
+        resultado = await this.http.post(this.url+"libro", unLibro).toPromise(); //Post para guardar
+  
+        console.log(resultado);
+        
+        return resultado;
+      }
+      catch(error){
+        console.log(error);
+      }
+      
+    }
+
   //Metodo para recibir el listado de todos los libros
   async listaDeLibros(){
+    try{
+      var resultado: any;
+
+      resultado = await this.http.get(this.url+"libro").toPromise(); 
+    
+      return resultado;
+    }
+    catch(error){
+      console.log(error);
+    }
+    
+  }
+
+   //Metodo para recibir el listado de todos los libros
+   async listaDeLibrosPrestados(){
     try{
       var resultado: any;
 

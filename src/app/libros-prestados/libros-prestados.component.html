@@ -1,6 +1,6 @@
 <h2 class="title">Listado de libros prestados</h2>
 
-<table class="table table-striped">
+<table class="table table-striped" (ngSubmit)="aListado()">
     <thead>
         <tr>
             <th>Nombre</th>
@@ -14,12 +14,12 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor = "let item of libros">
+        <tr *ngFor = "let item of librosPrestados">
             <td>{{item.name}}</td>
             <td>{{item.author}}</td>
             <td>{{item.lended}}</td>
             <td>{{item.gender}}</td>
-            <td><button>Borrar</button></td>
+            <td><button type="submit">Borrar</button></td>
             
             
 
