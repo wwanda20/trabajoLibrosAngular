@@ -27,7 +27,8 @@ export class LibrosService {
     
   }
 
-    //Metodo para solicitar guardar un libro con todos los datos
+  /*
+    //Metodo para solicitar guardar un libro prestado con todos los datos
     async guardarLibroPrestado(unLibro){
       try{
         var resultado: any;
@@ -43,7 +44,7 @@ export class LibrosService {
       }
       
     }
-
+*/
   //Metodo para recibir el listado de todos los libros
   async listaDeLibros(){
     try{
@@ -58,8 +59,8 @@ export class LibrosService {
     }
     
   }
-
-   //Metodo para recibir el listado de todos los libros
+/*
+   //Metodo para recibir el listado de todos los libros prestados
    async listaDeLibrosPrestados(){
     try{
       var resultado: any;
@@ -74,21 +75,26 @@ export class LibrosService {
     
   }
 
+  */
+
   async modificar(unLibro){
     try{
       var resultado: any;
-      resultado = await this.http.put(this.url+"libro/:id", unLibro.lended).toPromise();
-      return resultado;
+      resultado = await this.http.put(this.url+"libro/:id", unLibro).toPromise();
+      console.log("prestado");
+      return true;
+      
     }
     catch(error){
       console.log(error);
+      return false;
     }
   }
 
-  async getGenero(){
+  async getGenero(unLibro){
     try{
       var resultado: any;
-      resultado = await this.http.get(this.url+"genero").toPromise();
+      resultado = await this.http.get(this.url+"genero", unLibro).toPromise();
       return resultado;
     }
     catch(error){
@@ -99,7 +105,7 @@ export class LibrosService {
   async postGenero(unLibro){
     try{
       var resultado: any;
-      resultado = await this.http.post(this.url+"genero", unLibro.name).toPromise();
+      resultado = await this.http.post(this.url+"genero", unLibro).toPromise();
       return resultado;
     }
     catch(error){

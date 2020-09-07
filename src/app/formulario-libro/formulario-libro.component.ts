@@ -8,10 +8,11 @@ import { LibrosService } from '../libros.service';
   styleUrls: ['./formulario-libro.component.css']
 })
 export class FormularioLibroComponent implements OnInit {
-
+  
   @Output() hayUnNuevoLibro = new EventEmitter();
 
   libro = {
+    id: '',
     name: '',
     author: '',
     lended:'',

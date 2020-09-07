@@ -9,12 +9,14 @@ import { LibrosService } from '../libros.service';
 export class ComponentePadreComponent implements OnInit {
 
   lista:any = [];
+  
 
   constructor(private librosService: LibrosService) { }
 
   async ngOnInit() {
 
     this.lista = await this.librosService.listaDeLibros();
+    
   }
 
 
@@ -23,9 +25,4 @@ export class ComponentePadreComponent implements OnInit {
     this.lista = await this.librosService.listaDeLibros();
 
   }
-
-  async libroPrestadoLista(){
-    this.lista = await this.librosService.listaDeLibrosPrestados();
-  }
-
 }

@@ -8,11 +8,11 @@
     <label for="author">Autor</label>
     <input type="text" name="author" id="author" [(ngModel)]="libro.author">
 
-    <label for="lended">Prestado a</label>
+    <label for="lended">Prestar a</label>
     <input type="text" name="lended" id="lended" [(ngModel)]="libro.lended">
 
     <label for="gender">Genero</label>
-    <select name="gender" id="gender" [(ngModel)]="libro.gender" >
+    <select name="gender" id="gender" [(ngModel)]="libro.gender">
         <option *ngFor="let generosLibros of generos" [value]="generosLibros.id">{{generosLibros.genero}}</option>
     </select>
 
