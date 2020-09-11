@@ -2,4 +2,11 @@
     text-align: center;
     color: lightseagreen;
     margin: 12px;
+    margin-top: 10px;
+}
+
+.lista{
+    background-color:#cbdfbd;
+    margin: 20px;
+    border-radius: 15px;
 }

@@ -27,24 +27,24 @@ export class LibrosService {
     
   }
 
-  /*
-    //Metodo para solicitar guardar un libro prestado con todos los datos
-    async guardarLibroPrestado(unLibro){
-      try{
-        var resultado: any;
   
-        resultado = await this.http.post(this.url+"libro", unLibro).toPromise(); //Post para guardar
+  //Metodo para solicitar guardar un libro prestado con todos los datos
+  async guardarLibroPrestado(unLibro){
+    try{
+      var resultado: any;
   
-        console.log(resultado);
+      resultado = await this.http.post(this.url+"libro", unLibro.name+unLibro.author+unLibro.lended+unLibro.gender).toPromise(); //Post para guardar
+  
+      console.log(resultado);
         
-        return resultado;
-      }
-      catch(error){
-        console.log(error);
-      }
-      
+      return resultado;
     }
-*/
+    catch(error){
+      console.log(error);
+    }
+      
+  }
+
   //Metodo para recibir el listado de todos los libros
   async listaDeLibros(){
     try{
@@ -59,42 +59,25 @@ export class LibrosService {
     }
     
   }
-/*
-   //Metodo para recibir el listado de todos los libros prestados
-   async listaDeLibrosPrestados(){
-    try{
-      var resultado: any;
-
-      resultado = await this.http.get(this.url+"libro").toPromise(); 
-    
-      return resultado;
-    }
-    catch(error){
-      console.log(error);
-    }
-    
-  }
-
-  */
 
   async modificar(unLibro){
     try{
       var resultado: any;
-      resultado = await this.http.put(this.url+"libro/:id", unLibro).toPromise();
-      console.log("prestado");
-      return true;
+      resultado = await this.http.put(this.url+"libro/"+unLibro.id, unLibro.lended).toPromise();
+      console.log(resultado);
+      return resultado;
       
     }
     catch(error){
       console.log(error);
-      return false;
+      
     }
   }
 
-  async getGenero(unLibro){
+  async getGenero(){
     try{
       var resultado: any;
-      resultado = await this.http.get(this.url+"genero", unLibro).toPromise();
+      resultado = await this.http.get(this.url+"genero").toPromise();
       return resultado;
     }
     catch(error){
@@ -105,7 +88,7 @@ export class LibrosService {
   async postGenero(unLibro){
     try{
       var resultado: any;
-      resultado = await this.http.post(this.url+"genero", unLibro).toPromise();
+      resultado = await this.http.post(this.url+"genero", unLibro.name).toPromise();
       return resultado;
     }
     catch(error){

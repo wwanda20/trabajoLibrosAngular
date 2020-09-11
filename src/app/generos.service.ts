@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-
 
 @Injectable({
   providedIn: 'root'
@@ -40,21 +38,11 @@ export class GenerosService {
   ];
 
 
-  constructor(private http: HttpClient) { }
+  constructor() { }
   
   //metodo que devuelve el listado de los generos
   listaGeneros(){
-    //try{
-      //let respuesta: any;
-      //respuesta = await this.http.get(this.url+"generos").toPromise();   Agregar async
-      //return respuesta;
-      return this.generosLibros;
-    //}
-    //catch(e){
-      //console.log(e);
-      //return [];
-    //}
-
+    return this.generosLibros;
   }
   
 }

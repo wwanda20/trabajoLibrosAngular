@@ -8,7 +8,7 @@ import { LibrosService } from '../libros.service';
 })
 export class LibrosPrestadosComponent implements OnInit {
 
-  @Input() libros:any = [];
+  @Input() libroPrestado:any = [];
   @Output() libroFuePrestado = new EventEmitter();
   
   name = '';
@@ -21,19 +21,20 @@ export class LibrosPrestadosComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  async aListado(){
-    var libroPrestado ={
+  async aListado(lended){
+    var libro ={
       name: this.name,
       author: this.author,
       lended: this.lended,
       gender: this.gender
 
     }
-     //Envio estructura libro al metodo creado en el service
-     var respuesta: any;
-     respuesta = await this.librosService.guardarLibro(libroPrestado);
-     console.log("Libro Prestado: "+libroPrestado);
-     this.libroFuePrestado.emit();  //aviso que guarde el libro
+    
+  
+    if(lended == ""){
+      await this.librosService.modificar(libro.lended);
+    }
+  
   }
 
 }

@@ -1,24 +1,26 @@
 <h2 class="title">Listado de libros</h2>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Nombre</th>
-            <th>Autor</th>
-            <th>Prestado a</th>
-            <th>Género</th>
+<div class="listado">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Autor</th>
+                <th>Prestado a</th>
+                <th>Género</th>
 
-            
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor = "let item of libros">
-            <td>{{item.name}}</td>
-            <td>{{item.author}}</td>
-            <td>{{item.lended}}</td>
-            <td>{{item.gender}}</td>
-            <td><button onclick="modificar()">Prestar</button></td>
-            
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let item of libros">
+                <td>{{item.name}}</td>
+                <td>{{item.author}}</td>
+                <td>{{item.gender}}</td>
+                <td><input type="text" name="lended" id="lended" [(ngModel)]="item.lended"></td>
+                <td><button class="btn btn-warning" onclick="prestar(item.lended)">Prestar</button></td>
+                
 
-        </tr>
-    </tbody>
-</table>
+            </tr>
+        </tbody>
+    </table>
+</div>

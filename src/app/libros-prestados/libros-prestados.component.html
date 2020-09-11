@@ -1,29 +1,30 @@
 <h2 class="title">Listado de libros prestados</h2>
+<div class="lista">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Autor</th>
+                <th>Género</th>
+                <th>Prestar a</th>
+                <th> </th>
+                
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Nombre</th>
-            <th>Autor</th>
-            <th>Genero</th>
-            <th>Prestar a</th>
-            <th> </th>
-            
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let item of libroPrestado">
+                <td>{{item.name}}</td>
+                <td>{{item.author}}</td>
+                <td>{{item.gender}}</td>
+                <td><input type="text" name="lended" id="lended" [(ngModel)]="item.lended"></td>
+                <td><button class="btn btn-danger" (click)="aListado(item.lended)">Guardar</button></td>
+                
+                
+                
 
-            
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor = "let item of libros">
-            <td>{{item.name}}</td>
-            <td>{{item.author}}</td>
-            <td>{{item.gender}}</td>
-            <td><input type="text" name="lended" id="lended" ></td>
-            <td><button (click)="modificar(libro.lended)">Guardar</button></td>
-            
-            
-            
-
-        </tr>
-    </tbody>
-</table>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -12,7 +12,6 @@ export class FormularioLibroComponent implements OnInit {
   @Output() hayUnNuevoLibro = new EventEmitter();
 
   libro = {
-    id: '',
     name: '',
     author: '',
     lended:'',
@@ -29,6 +28,7 @@ export class FormularioLibroComponent implements OnInit {
     this.generos = this.generosService.listaGeneros();
     console.log('generos',this.generos);
   }
+
   async guardar(){
     if(this.libro.lended == ''){ 
       //Envio estructura libro al metodo creado en el service
@@ -38,10 +38,8 @@ export class FormularioLibroComponent implements OnInit {
       this.hayUnNuevoLibro.emit();  //aviso que guarde el libro
     }
     else{
-      var respuesta: any;
-      respuesta = await this.librosService.guardarLibro(this.libro);
       console.log("Libro prestado: ", this.libro);
-      this.hayUnNuevoLibro.emit();  //aviso que guarde el libro
+      
     }
   }    
    
